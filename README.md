@@ -64,7 +64,7 @@ Multiple checkpoints can be averaged with
 python ensemble.py --config configs/ensemble.yaml --input data/Patient_X --out Patient_X.npy
 ```
 
-## Visualisation
+## Visualization
 
 `viz_overlay.py` and `viz_overlay_dual.py` overlay a predicted mask on the magnitude and/or phase images. `viz_random_sample.py` shows a random validation subject for a trained model.
 
