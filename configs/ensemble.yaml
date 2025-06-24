@@ -1,0 +1,9 @@
+# configs/ensemble.yaml
+_base_: configs/unet3d_baseline.yaml   # inherit training params
+ensemble:
+  ckpts:
+    - checkpoints/unet3d_baseline_fold0_best.pt
+    - checkpoints/unet3d_baseline_fold1_best.pt
+    - checkpoints/unet3d_baseline_fold2_best.pt
+    - checkpoints/unet3d_baseline_fold3_best.pt
+    - checkpoints/unet3d_baseline_fold4_best.pt

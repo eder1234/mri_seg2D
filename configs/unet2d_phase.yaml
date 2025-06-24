@@ -1,0 +1,35 @@
+# configs/unet2d_phase.yaml
+experiment: unet2d_phase            # <- new name → new runs/, checkpoints/
+folds: 5
+seed: 42
+
+data:
+  root: ./data
+  patch_size: [64, 64]
+  batch_size: 32
+  num_workers: 4
+  modality: phase                  # <<<<<< use phase frames only
+
+model:
+  name: unet2d
+  in_channels: 32                  # 32 phase frames
+  out_channels: 2
+  channels: [8, 16, 32, 64, 128]
+  strides:  [2, 2, 2, 2]
+  num_res_units: 2
+
+train:
+  epochs: 300
+  amp: true
+  lr: 3.0e-4
+  weight_decay: 1.0e-5
+  scheduler: cosine
+  scheduler_T_max: 300
+
+loss:
+  type: dice_ce
+  dice_weight: 1.0
+  ce_weight: 1.0
+
+logging:
+  interval: 20
